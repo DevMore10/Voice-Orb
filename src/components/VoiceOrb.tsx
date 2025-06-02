@@ -36,7 +36,7 @@ export default function VoiceOrbInterface() {
     };
   }, [isPanelOpen]);
 
-  const handleMouseDown = (e) => {
+  const handleMouseDown = (e: any) => {
     e.preventDefault();
     setDragStart({
       x: e.clientX - orbPosition.x,
@@ -72,7 +72,7 @@ export default function VoiceOrbInterface() {
     setIsDragging(false);
   };
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: any) => {
     const touch = e.touches[0];
     const rect = orbRef.current.getBoundingClientRect();
     setDragStart({
