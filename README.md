@@ -30,6 +30,38 @@ To use this integration, set your webhook URL in the environment variable:
 VITE_WEBHOOK_URL=https://your-n8n-instance-url/webhook/your-endpoint-path
 ```
 
+## ElevenLabs Conversational AI
+
+Voice Orb integrates ElevenLabs' conversational AI capabilities to provide a natural voice interface. The integration offers:
+
+- **Real-time Voice Conversations**: Talk directly with the AI assistant "Kiaan" through the microphone
+- **Multi-mode Support**:
+
+  - **Talk Mode**: One-on-one conversations with the AI assistant
+  - **Meeting Mode**: Enhanced conversation mode designed for meeting scenarios
+  - **Chat Mode**: Text-based interaction with optional voice responses
+
+- **Voice Feedback**: The system provides real-time feedback when the AI is speaking or listening
+- **Error Handling**: Built-in error management for connection issues and conversation failures
+
+To use ElevenLabs Conversational AI, ensure you have the required dependencies:
+
+```
+npm install @elevenlabs/react
+```
+
+The Voice Panel component utilizes the `useConversation` hook from ElevenLabs React SDK to manage voice interactions:
+
+```jsx
+// Example usage of ElevenLabs conversation hook
+const conversation = useConversation({
+  onConnect: () => console.log("Connected"),
+  onDisconnect: () => console.log("Disconnected"),
+  onMessage: (message) => console.log("Message received:", message),
+  onError: (error) => console.error("Conversation error:", error),
+});
+```
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
